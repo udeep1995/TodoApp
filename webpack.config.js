@@ -35,6 +35,7 @@ plugins:[
       SearchTodo:'SearchTodo.jsx',
       TodoAPI:'TodoAPI.jsx',
       applicationStyles:'app.css',
+      actions:'app/actions/actions.jsx'
     },
     extensions: ['.js', '.jsx']
   },
