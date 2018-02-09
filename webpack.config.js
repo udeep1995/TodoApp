@@ -36,7 +36,8 @@ plugins:[
       TodoAPI:'TodoAPI.jsx',
       applicationStyles:'app.css',
       actions:'app/actions/actions.jsx',
-      reducers:'app/reducers/reducers.jsx'
+      reducers:'app/reducers/reducers.jsx',
+      configureStore:'app/store/configureStore.jsx'
     },
     extensions: ['.js', '.jsx']
   },
