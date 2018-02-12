@@ -1,12 +1,12 @@
 {
-  "name": " React Boiler plate",
+  "name": "todoapp",
   "version": "1.0.0",
-  "description": "react weather app",
+  "description": "react todo app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"webpack",
-    "start": "npm run build && node server.js"
+    "prestart":"npm install && webpack",
+     "start": "node server.js"
   },
   "author": "Udeep",
   "license": "ISC",
