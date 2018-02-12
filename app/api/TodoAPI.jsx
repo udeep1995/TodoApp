@@ -1,21 +1,27 @@
 var $ = require('jquery');
+import firebase, {firebaseRef} from 'index';
 module.exports = {
   setTodos:function(todos){
-    if($.isArray(todos)){
-      localStorage.setItem('todos',JSON.stringify(todos));
-      return todos;
-    }
   },
   getTodos:function(){
-    var stringedTodos =  localStorage.getItem('todos');
-    var todos = [];
-    try{
-      todos = JSON.parse(stringedTodos);
-    }
-    catch(e){
-    }
-    return $.isArray(todos) ? todos : [];
+    return new Promise((resolve,reject) => {
+     firebaseRef.child('todos').once('value').then((snapshot) => {
+         var todos = snapshot.val() || {};
+         var parsedTodos = [];
+         Object.keys(todos).forEach((todoId) => {
+           parsedTodos.push({
+             id: todoId,
+             ...todos[todoId]
+           })
+         })
+         if(parsedTodos) {
+           resolve(parsedTodos);
+         }
+     });
+    })
+
   },
+
   filterTodos:function(todos,showCompleted, searchText){
       var filteredTodos = todos;
 
